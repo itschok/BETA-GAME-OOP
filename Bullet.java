@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 
 public class Bullet {
     public int x, y;
-    public int speed = 3;
+    public int speed = 5;
     public boolean active = true;
     public String direction;
     public BufferedImage image;

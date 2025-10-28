@@ -15,7 +15,7 @@ public class Player extends Entity {
     public int expToNextLevel = 50;
     private long lastShotTime = 0;
     public  int shootCooldown = 200; // 200 ms (0.2 วินาที)
-    int attackPower = 10+ (level * 2);
+    int attackPower = 10;
     int maxHp = 100;
 
     KeyHandle keyH;
@@ -92,6 +92,7 @@ public class Player extends Entity {
             expToNextLevel += 50; // เพิ่มค่าที่ต้องใช้ Level Up
             maxHp += 10;
             hp = maxHp;
+            attackPower = (attackPower+(level*2));
             System.out.println("LEVEL UP! → " + level);
             Game.instance.pauseGame(); // หยุดเกมชั่วคราว
             Game.instance.upgradeUI.showChoices(); // แสดง UI สุ่มสกิล

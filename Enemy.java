@@ -57,6 +57,6 @@ public class Enemy extends Entity {
 
     // ✅ ใช้ตรวจการชนแบบกล่อง (rectangle)
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 40, 40);
+        return new Rectangle(x, y, 30, 30);
     }
 }

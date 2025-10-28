@@ -70,8 +70,8 @@ public class Game extends JPanel implements Runnable {
         //UI UPGRADE
         allSkills.add(new Skill("Speed Up", "MovementSpeed +1", () -> player.speed += 1));
         allSkills.add(new Skill("Max HP Up", "MAX HP+20", () -> player.hp += 20));
-        allSkills.add(new Skill("Max HP Up", "Cooldown 20%ada", () -> player.shootCooldown *= 0.8));
-
+        allSkills.add(new Skill("Cooldown Up", "Cooldown 20%", () -> player.shootCooldown *= 0.8));
+        allSkills.add(new Skill("Attack Up", "Attack 5%", () -> player.attackPower+=10));
         // ✅ สร้าง Upgrade UI
         upgradeUI = new UpgradeUI(this, allSkills);
         upgradeUI.setBounds(0, 0, screenWidth, screenHeight);
