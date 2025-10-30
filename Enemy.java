@@ -28,7 +28,7 @@ public class Enemy extends Entity {
         if (player.y < y) y -= speed;
     }
 
-    // ✅ ฟังก์ชันตรวจโดนกระสุน
+    // ฟังก์ชันตรวจโดนกระสุน
     public void takeDamage(int damage) {
     hp -= damage;
     if (hp <= 0) {
@@ -55,7 +55,7 @@ public class Enemy extends Entity {
         g2.fillRect(x - 5, y - 10, hp * 2, 5);
     }
 
-    // ✅ ใช้ตรวจการชนแบบกล่อง (rectangle)
+    //  ใช้ตรวจการชนแบบกล่อง (rectangle)
     public Rectangle getBounds() {
         return new Rectangle(x, y, 30, 30);
     }
