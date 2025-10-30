@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class Game extends JPanel implements Runnable {
     // ==========================
-    // 🔧 SET SCREEN
+    // SET SCREEN
     // ==========================
     final int originalTileSize = 16;
     final int scale = 3;
@@ -52,7 +52,7 @@ public class Game extends JPanel implements Runnable {
     boolean gameOver = false;
 
     // ==========================
-    // 🔧 CONSTRUCTOR
+    // CONSTRUCTOR
     // ==========================
     public Game() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -62,7 +62,7 @@ public class Game extends JPanel implements Runnable {
         this.setFocusable(true);
         instance = this; 
 
-        // 👾 สร้างศัตรูเริ่มต้น
+        // สร้างศัตรูเริ่มต้น
         enemies.add(new Enemy(200, 100));
         enemies.add(new Enemy(500, 300));
         enemies.add(new Enemy(600, 200));
@@ -72,7 +72,7 @@ public class Game extends JPanel implements Runnable {
         allSkills.add(new Skill("Max HP Up", "MAX HP+20", () -> player.hp += 20));
         allSkills.add(new Skill("Cooldown Up", "Cooldown 20%", () -> player.shootCooldown *= 0.8));
         allSkills.add(new Skill("Attack Up", "Attack 5%", () -> player.attackPower+=10));
-        // ✅ สร้าง Upgrade UI
+        // สร้าง Upgrade UI
         upgradeUI = new UpgradeUI(this, allSkills);
         upgradeUI.setBounds(0, 0, screenWidth, screenHeight);
         this.setLayout(null);
@@ -80,7 +80,7 @@ public class Game extends JPanel implements Runnable {
     }
 
     // ==========================
-    // 🔁 GAME LOOP
+    // GAME LOOP
     // ==========================
     public void startGameThread() {
         this.requestFocusInWindow();
@@ -114,7 +114,7 @@ public class Game extends JPanel implements Runnable {
     }
 
     // ==========================
-    // 🎮 UPDATE GAME STATE
+    // UPDATE GAME STATE
     // ==========================
 public void update() {
     if (paused) return; // หยุดทุกอย่างถ้าอยู่ใน UI
@@ -123,14 +123,14 @@ public void update() {
     if (gameOver)  this.requestFocusInWindow();
     player.update();
 
-    // 🔹 Spawn ศัตรู
+    // Spawn ศัตรู
     spawnTimer++;
     if (spawnTimer >= spawnInterval) {
         spawnEnemy();
         spawnTimer = 0;
     }
 
-    // 🔹 อัปเดตกระสุน
+    // อัปเดตกระสุน
     for (int i = 0; i < player.bullets.size(); i++) {
         Bullet b = player.bullets.get(i);
         b.update();
@@ -154,7 +154,7 @@ public void update() {
         }
     }
 
-    // 🔹 อัปเดตศัตรูและตรวจชน Player
+    // อัปเดตศัตรูและตรวจชน Player
     for (Enemy e : enemies) {
         e.update(player);
         if (e.alive && player.hp > 0) {
@@ -167,10 +167,10 @@ public void update() {
         }
     }
 
-    // 🔹 ลบศัตรูที่ตายแล้ว
+    // ลบศัตรูที่ตายแล้ว
     enemies.removeIf(e -> !e.alive);
 
-    // 🔹 รีสตาร์ทเกม
+    // รีสตาร์ทเกม
     if (gameOver && keyH.rPressed) {
         restartGame();
         this.requestFocusInWindow();
@@ -178,7 +178,7 @@ public void update() {
 }
 
     // ==========================
-    // 👾 สุ่ม Spawn ศัตรู
+    // สุ่ม Spawn ศัตรู
     // ==========================
     private void spawnEnemy() {
         int x, y;
@@ -197,7 +197,7 @@ public void update() {
     }
 
     // ==========================
-    // 🧱 วาด HUD (HP, EXP, LV)
+    //  วาด HUD (HP, EXP, LV)
     // ==========================
     private void drawHUD(Graphics2D g2) {
         int barX = 20;
@@ -253,7 +253,7 @@ public void update() {
 
 
     // ==========================
-    // 🖼️ DRAW EVERYTHING
+    // DRAW EVERYTHING
     // ==========================
     @Override
     public void paintComponent(Graphics g) {
