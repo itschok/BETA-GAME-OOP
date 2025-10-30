@@ -21,7 +21,7 @@ public class Game extends JPanel implements Runnable {
     final int screenHeight = tileSize * maxScreenRow;
     int score = 0;
     long startTime = System.currentTimeMillis();
-    // 🔹 Spawn Enemy Timer
+    //  Spawn Enemy Timer
     int spawnTimer = 0;
     int spawnInterval = 40; // ทุก 1 วินาที (60 เฟรม)
 
